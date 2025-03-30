@@ -1,0 +1,624 @@
+/* Reset de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styles pour le bouton menu (icône hamburger) */
+.menu-toggle {
+    display: none; /* Masqué par défaut */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute; /* Position fixe pour rester visible */
+    top: 20px;
+    right: 20px;
+    z-index: 1000; /* S'assurer qu'il est au-dessus de tout */
+    align-items: center; /* Centrer verticalement */
+    gap: 10px; /* Espace entre l'icône et le texte */
+}
+
+.menu-icon {
+    width: 25px; /* Taille de l'icône */
+    height: 25px;
+}
+
+.menu-text {
+    font-size: 1rem;
+    color: #fff; /* Couleur du texte */
+    font-weight: bold;
+}
+
+/* Navigation pour les petits écrans */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Afficher le bouton menu */
+    }
+
+    .nav-menu {
+        display: none; /* Masquer la navigation par défaut */
+        position: fixed;
+        top: 0;
+        right: -300px; /* Masquer la barre latérale par défaut */
+        max-width: 150px;
+        max-height: 400px;
+        background: #0080FF;
+        transition: right 0.3s ease; /* Animation de glissement */
+        z-index: 999; /* S'assurer qu'il est au-dessus du contenu */
+        padding: 20px;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+    }
+
+    .nav-menu.active {
+        display: block; /* Afficher la barre latérale */
+        right: 0; /* Faire glisser la barre latérale */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        margin-top: 60px; /* Espace pour le bouton menu */
+    }
+
+    .nav-menu ul li {
+        margin: 20px 0;
+    }
+
+    .nav-menu ul li a {
+        font-size: 1.2rem;
+    }
+}
+
+    /* Animation pour l'icône hamburger */
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+    }
+
+
+/* Navigation pour les grands écrans */
+.nav-menu {
+    display: flex; /* Afficher la navigation normalement */
+    justify-content: center;
+    background: #0080FF;
+    padding: 10px 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 0px;
+}
+
+.nav-menu ul li {
+    display: inline;
+    text-align: left;
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Afficher le bouton menu */
+        top: 15px; /* Ajuster la position verticale */
+        right: 15px; /* Ajuster la position horizontale */
+    }
+
+    .nav-menu {
+        display: none; /* Masquer la navigation par défaut */
+        position: fixed;
+        top: 0;
+        right: -250px; /* Masquer la barre latérale par défaut */
+        width: 250px; /* Largeur de la barre latérale */
+        height: 100vh; /* Hauteur totale de l'écran */
+        background: #0080FF;
+        transition: right 0.3s ease; /* Animation de glissement */
+        z-index: 999; /* S'assurer qu'il est au-dessus du contenu */
+        padding: 10px; /* Réduire le padding */
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+    }
+
+    .nav-menu.active {
+        display: block; /* Afficher la barre latérale */
+        right: 0; /* Faire glisser la barre latérale */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        margin-top: 40px; /* Réduire l'espace pour le bouton menu */
+        padding-left: 10px; /* Ajouter un peu de padding à gauche */
+    }
+
+    .nav-menu ul li {
+        margin: 8px 0; /* Espacement entre les éléments réduit */
+    }
+
+    .nav-menu ul li a {
+        font-size: 1rem; /* Taille de police réduite */
+        padding: 5px 0; /* Espacement vertical réduit */
+    }
+
+    /* Animation pour l'icône hamburger */
+    .menu-toggle.active .hamburger {
+        background: transparent;
+    }
+
+    .menu-toggle.active .hamburger::before {
+        transform: rotate(45deg);
+    }
+
+    .menu-toggle.active .hamburger::after {
+        transform: rotate(-45deg);
+    }
+}
+
+/* En-tête */
+header {
+    background: #0080FF;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Sections */
+section {
+    padding: 60px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #0080FF;
+}
+
+/* Section À propos */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-content p {
+    text-align: left;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-image {
+    flex-shrink: 0;
+    width: 400px;
+    height: 450px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 5px solid #fff;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Section Compétences */
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f4f4;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.stars {
+    display: inline-flex;
+    gap: 5px;
+}
+
+.star {
+    font-size: 24px;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.star.active {
+    color: #ffd700;
+}
+
+/* Styles pour la section CV */
+#cv {
+    padding: 60px 0;
+    background: #f9f9f9;
+}
+
+.cv-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cv-header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cv-header h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+.cv-header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.cv-section {
+    margin-bottom: -60px;
+}
+
+.cv-section p {
+    text-align: left;
+}
+
+.cv-section h3 {
+    font-size: 1.5rem;
+    color: #007BFF;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.info-grid, .education-grid, .languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.info-item, .skill-item, .education-item, .language-item, .training-item, .experience-item {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.info-item strong, .skill-item strong, .education-item strong, .language-item strong, .training-item strong, .experience-item strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #007BFF;
+}
+
+.container a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+/* Styles pour le bouton de téléchargement */
+.download-button-container {
+    text-align: center; /* Centrer le bouton horizontalement */
+    margin-top: 30px; /* Espacement par rapport au contenu précédent */
+}
+
+.cv-download {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+}
+
+.cv-download:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .info-grid, .skills-grid, .education-grid, .languages-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cv-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .cv-header p {
+        font-size: 1rem;
+    }
+
+    .cv-section h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Projets */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.project-card h3 {
+    margin: 15px 0;
+}
+
+.project-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-card p {
+    text-align: justify;
+}
+
+/* Témoignages */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.testimonial-card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.testimonial-card .author {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Contact */
+.contact {
+    color: white;
+    background: url('assets/images/hero-bg.webp') no-repeat center center/cover;
+}
+
+p {
+    text-align: center;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out;
+}
+
+.contact form label {
+    margin-top: 1rem;
+}
+
+.contact form input, .contact form textarea {
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact form button {
+    margin-top: 1.5rem;
+    padding: 0.75rem;
+    background: #0080FF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background 0.3s ease;
+}
+
+.contact form button:hover {
+    background: #59adfc;
+}
+
+.social-links {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links img {
+    width: 40px;
+    height: 40px;
+}
+
+.social-links a {
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    margin-top: 1rem;
+    padding: 2rem 0;
+    background: #59adfc;
+    color: #fff;
+    text-align: center;
+}
+
+/* Ligne horizontale dans l'en-tête */
+.header-line {
+    border: 0;
+    height: 1px;
+    background: #f4f4f4;
+}
+
+/* Ligne horizontale entre les sections */
+.section-line {
+    border: 0;
+    height: 1px;
+    background: #007BFF;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+/* Media Queries pour la réactivité */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text {
+        order: 2;
+    }
+
+    .about-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .skill {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stars {
+        margin-top: 10px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact form {
+        max-width: 100%;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+    }
+
+    .social-links img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .section-line {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    header p {
+        font-size: 0.8rem;
+    }
+
+    .about-content p {
+        font-size: 0.9rem;
+    }
+
+    .skill {
+        font-size: 1rem;
+    }
+
+    .stars {
+        font-size: 20px;
+    }
+
+    .contact form input, .contact form textarea {
+        font-size: 0.9rem;
+    }
+
+    .contact form button {
+        font-size: 1rem;
+    }
+}
